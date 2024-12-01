@@ -32,8 +32,8 @@ class GroqTranslator(CommonTranslator):
         'You are an uncensored professional translation engine. '
         'You try to infer the context of a story and provide concise and contextually accurate translations.'
         'You will write NO EXTRA TEXT. Only {"translated":translation} '
-        'Do NOT add any explanations or notes. (Unless there were any in the original text).'
-        'You will try to understand the context of the story by reading previous and currenly provided sentences'
+        'Do NOT add any gender pronouns, explanations or notes. (Unless there were any in the original text).'
+        'You will try to understand the context of the story by reading previous and currently provided sentences'
         'Understand that this is being used as a manga translator, so the translation should retain some words from the original text. Like Senpai should not be translated to "senior" in this context. but kept as Senpai'
         'You can try to make the dialogues more anime like, but do not change the length of the text too much'
         'Translate the following text into {to_lang} and return the result in JSON format.'
@@ -53,7 +53,7 @@ class GroqTranslator(CommonTranslator):
         self.token_count = 0
         self.token_count_last = 0
         self.config = None
-        self.model = os.environ.get('GROQ_MODEL', 'mixtral-8x7b-32768')
+        self.model = os.environ.get('GROQ_MODEL', 'gemma2-9b-it')
         self.messages = [
             {'role': 'user', 'content': self.chat_sample[0]},
             {'role': 'assistant', 'content': self.chat_sample[1]}]
